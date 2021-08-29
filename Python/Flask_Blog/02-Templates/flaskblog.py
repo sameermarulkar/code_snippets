@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for           # url_for automatically finds the exact location of routes from the code-base
+                                                            # could be seen in templates/layout.html
 app = Flask(__name__)
 
 posts = [
@@ -20,7 +21,8 @@ posts = [
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', posts=posts)
+    return render_template('home.html', posts=posts)        # dictionary list "posts" is passed to home.html template 
+                                                            # jinja-2 is used to receive it on the other end
 
 
 @app.route("/about")
